@@ -21,7 +21,7 @@
 
 
 using namespace std;
-
+//test
 //Start the Main Function
 
 int main()
@@ -46,6 +46,7 @@ int Demand;
     cout << "This program will calculate a number of Capacitated Vehicle Routing Problems, given your parameters. \n";
     cout << "How many instances do you want to calculate? \n";
     cin >> NumofInsts  ;
+    cout<<"Help";
 
     cout << "Enter n, the number of nodes used in the graph. \n";
     cin >> NumofNodes  ;
@@ -76,20 +77,31 @@ int Demand;
 //Create random processes to draw from. This is used for the node placement,
 //demands, and demand multiplication factors respectively.
 
+
+    auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+
+
 //Random process for the node placement
     random_device NodeRanDev;
-    mt19937 NodeGen(NodeRanDev());
+    mt19937 NodeGen(seed);
+    //mt19937 NodeGen(NodeRanDev());
+
     uniform_int_distribution<> NodeDis(1, 100);
 
 //Random process for demands of nodes
 //This is a uniform distribution from the parameters provided
+
     random_device DemandRanDev;
-    mt19937 DemandGen(DemandRanDev());
+    seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+    mt19937 DemandGen(seed);
+  //  mt19937 DemandGen(DemandRanDev());
     uniform_int_distribution<> DemandDis(DistLower, DistUpper);
 
 //Random process for having some nodes' demands multiplied by 10.
     random_device DemandMultRanDev;
+    seed = chrono::high_resolution_clock::now().time_since_epoch().count();
     mt19937 DemandMultGen(DemandMultRanDev());
+//    mt19937 DemandMultGen(DemandMultRanDev());
     uniform_int_distribution<> DemandMultDis(1, 10);
 
 
@@ -166,7 +178,7 @@ stringstream InstantID;
     myfile.close();
 
     //Clears file names in for-loop.
-    delete InstantID;
+  //  delete InstantID;
 
 
 //Ends the for loop to create more than once instance.
