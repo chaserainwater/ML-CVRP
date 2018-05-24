@@ -46,7 +46,7 @@ int Demand;
     cout << "This program will calculate a number of Capacitated Vehicle Routing Problems, given your parameters. \n";
     cout << "How many instances do you want to calculate? \n";
     cin >> NumofInsts  ;
-cout<<"Help"l
+    cout<<"Help";
 
     cout << "Enter n, the number of nodes used in the graph. \n";
     cin >> NumofNodes  ;
@@ -167,7 +167,7 @@ stringstream InstantID;
     myfile.close();
 
     //Clears file names in for-loop.
-    delete InstantID;
+  //  delete InstantID;
 
 
 //Ends the for loop to create more than once instance.
