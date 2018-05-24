@@ -77,9 +77,11 @@ for (int k = 0; k < NumofInsts ; k++ )
 //
 //
 
+    auto seed = chrono::high_resolution_clock::now().time_since_epoch().count();
 
     random_device NodeRanDev;
-    mt19937 NodeGen(NodeRanDev());
+    mt19937 NodeGen(seed);
+  //  mt19937 NodeGen(NodeRanDev());
     uniform_int_distribution<> NodeDis(1, 100);
 
     for (int n=0; n<NumofNodes; ++n)
@@ -106,7 +108,8 @@ for (int k = 0; k < NumofInsts ; k++ )
 
 
     random_device DemandRanDev;
-    mt19937 DemandGen(DemandRanDev());
+    seed = chrono::high_resolution_clock::now().time_since_epoch().count();
+    mt19937 DemandGen(seed);
     uniform_int_distribution<> DemandDis(DistLower, DistUpper);
 
     for (int n=1; n<NumofNodes; ++n)
